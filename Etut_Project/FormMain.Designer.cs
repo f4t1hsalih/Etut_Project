@@ -40,15 +40,14 @@
             label1 = new Label();
             groupBox2 = new GroupBox();
             chbIptal = new CheckBox();
-            lblSoyad = new Label();
-            lblAd = new Label();
+            lblOgrenci = new Label();
+            lblOgretmen = new Label();
             btnEtutDetay = new Button();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
             groupBox3 = new GroupBox();
             dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -157,10 +156,9 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(textBox1);
             groupBox2.Controls.Add(chbIptal);
-            groupBox2.Controls.Add(lblSoyad);
-            groupBox2.Controls.Add(lblAd);
+            groupBox2.Controls.Add(lblOgrenci);
+            groupBox2.Controls.Add(lblOgretmen);
             groupBox2.Controls.Add(btnEtutDetay);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(label7);
@@ -181,23 +179,23 @@
             chbIptal.Text = "İptal";
             chbIptal.UseVisualStyleBackColor = true;
             // 
-            // lblSoyad
+            // lblOgrenci
             // 
-            lblSoyad.AutoSize = true;
-            lblSoyad.Location = new Point(111, 75);
-            lblSoyad.Name = "lblSoyad";
-            lblSoyad.Size = new Size(35, 18);
-            lblSoyad.TabIndex = 10;
-            lblSoyad.Text = "Null";
+            lblOgrenci.AutoSize = true;
+            lblOgrenci.Location = new Point(111, 75);
+            lblOgrenci.Name = "lblOgrenci";
+            lblOgrenci.Size = new Size(35, 18);
+            lblOgrenci.TabIndex = 10;
+            lblOgrenci.Text = "Null";
             // 
-            // lblAd
+            // lblOgretmen
             // 
-            lblAd.AutoSize = true;
-            lblAd.Location = new Point(111, 43);
-            lblAd.Name = "lblAd";
-            lblAd.Size = new Size(35, 18);
-            lblAd.TabIndex = 9;
-            lblAd.Text = "Null";
+            lblOgretmen.AutoSize = true;
+            lblOgretmen.Location = new Point(111, 43);
+            lblOgretmen.Name = "lblOgretmen";
+            lblOgretmen.Size = new Size(35, 18);
+            lblOgretmen.TabIndex = 9;
+            lblOgretmen.Text = "Null";
             // 
             // btnEtutDetay
             // 
@@ -220,20 +218,20 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(55, 75);
+            label7.Location = new Point(46, 75);
             label7.Name = "label7";
-            label7.Size = new Size(50, 18);
+            label7.Size = new Size(59, 18);
             label7.TabIndex = 3;
-            label7.Text = "Soyad: ";
+            label7.Text = "Öğrenci: ";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(71, 43);
+            label8.Location = new Point(34, 43);
             label8.Name = "label8";
-            label8.Size = new Size(34, 18);
+            label8.Size = new Size(71, 18);
             label8.TabIndex = 0;
-            label8.Text = "Ad: ";
+            label8.Text = "Öğretmen: ";
             // 
             // groupBox3
             // 
@@ -246,6 +244,9 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(3, 21);
@@ -254,14 +255,7 @@
             dataGridView1.Size = new Size(481, 188);
             dataGridView1.TabIndex = 0;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(32, 18);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 25);
-            textBox1.TabIndex = 12;
-            // 
-            // Form1
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -272,7 +266,7 @@
             Controls.Add(groupBox1);
             Font = new Font("Monotype Corsiva", 12F, FontStyle.Italic, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "Form1";
+            Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Etüt Programı";
             groupBox1.ResumeLayout(false);
@@ -298,14 +292,13 @@
         private MaskedTextBox mskSaat;
         private GroupBox groupBox2;
         private CheckBox chbIptal;
-        private Label lblSoyad;
-        private Label lblAd;
+        private Label lblOgrenci;
+        private Label lblOgretmen;
         private Button btnEtutDetay;
         private Label label6;
         private Label label7;
         private Label label8;
         private GroupBox groupBox3;
         private DataGridView dataGridView1;
-        private TextBox textBox1;
     }
 }

@@ -8,12 +8,13 @@ namespace Etut_Project
         public FormMain()
         {
             InitializeComponent();
-            dersListesi();
+            DersListesi();
+            EtutListesi();
         }
 
         SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=krsDbEtut;Integrated Security=True");
 
-        void dersListesi()
+        void DersListesi()
         {
             SqlDataAdapter da = new SqlDataAdapter("select * from tbl_subjects", con);
             DataTable dt = new DataTable();
@@ -21,6 +22,15 @@ namespace Etut_Project
             cmbDers.ValueMember = "subject_id";
             cmbDers.DisplayMember = "subject_name";
             cmbDers.DataSource = dt;
+        }
+
+        void EtutListesi()
+        {
+            string komut = "execute EtutOlustur";
+            SqlDataAdapter da = new SqlDataAdapter(komut, con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
 
         private void cmbDers_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,7 +79,6 @@ namespace Etut_Project
                 MessageBox.Show("Ýþleminiz Baþarýyla Gerçekleþti", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
 
     }
 }
