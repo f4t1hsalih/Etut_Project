@@ -33,6 +33,14 @@ namespace Etut_Project
             dataGridView1.DataSource = dt;
         }
 
+        void Temizle()
+        {
+            mskTarih.Clear();
+            mskSaat.Clear();
+            txtEtutID.Clear();
+            txtOgrenciNo.Clear();
+        }
+
         private void cmbDers_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*
@@ -78,8 +86,37 @@ namespace Etut_Project
                 con.Close();
                 MessageBox.Show("Ýþleminiz Baþarýyla Gerçekleþti", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 EtutListesi();
+                Temizle();
             }
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].RowIndex;
+
+            txtEtutID.Text = dataGridView1.Rows[secilen].Cells[0].Value.ToString();
+        }
+
+        private void btnEtutVer_Click(object sender, EventArgs e)
+        {
+            if (txtEtutID.Text != "" && txtOgrenciNo.Text != "")
+            {
+                con.Open();
+                string komut = "update tbl_etut set std_id = @p1, situation = @p2 where etut_id = @p3";
+                SqlCommand cmd = new SqlCommand(komut, con);
+                cmd.Parameters.AddWithValue("@p1", txtOgrenciNo.Text);
+                cmd.Parameters.AddWithValue("@p2", true);
+                cmd.Parameters.AddWithValue("@p3", txtEtutID.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Etüt Öðrenciye Verildi", "Bilgi");
+                con.Close();
+                Temizle();
+            }
+            else
+            {
+                MessageBox.Show("Tüm Deðerleri Doldurduðunuzdan Emin Olun");
+            }
+            EtutListesi();
+        }
     }
 }

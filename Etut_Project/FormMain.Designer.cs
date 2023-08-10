@@ -39,13 +39,14 @@
             mskTarih = new MaskedTextBox();
             label1 = new Label();
             groupBox2 = new GroupBox();
-            textBox1 = new TextBox();
+            txtEtutID = new TextBox();
             label5 = new Label();
             txtOgrenciNo = new TextBox();
             btnEtutVer = new Button();
             label7 = new Label();
             groupBox3 = new GroupBox();
             dataGridView1 = new DataGridView();
+            groupBox4 = new GroupBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -154,24 +155,24 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(txtEtutID);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(txtOgrenciNo);
             groupBox2.Controls.Add(btnEtutVer);
             groupBox2.Controls.Add(label7);
             groupBox2.Location = new Point(291, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(281, 195);
+            groupBox2.Size = new Size(281, 129);
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             // 
-            // textBox1
+            // txtEtutID
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(102, 25);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(165, 25);
-            textBox1.TabIndex = 11;
+            txtEtutID.Enabled = false;
+            txtEtutID.Location = new Point(102, 25);
+            txtEtutID.Name = "txtEtutID";
+            txtEtutID.Size = new Size(165, 25);
+            txtEtutID.TabIndex = 11;
             // 
             // label5
             // 
@@ -191,12 +192,13 @@
             // 
             // btnEtutVer
             // 
-            btnEtutVer.Location = new Point(102, 150);
+            btnEtutVer.Location = new Point(102, 87);
             btnEtutVer.Name = "btnEtutVer";
             btnEtutVer.Size = new Size(165, 30);
             btnEtutVer.TabIndex = 8;
             btnEtutVer.Text = "Etüt Ver";
             btnEtutVer.UseVisualStyleBackColor = true;
+            btnEtutVer.Click += btnEtutVer_Click;
             // 
             // label7
             // 
@@ -230,6 +232,15 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(554, 188);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Location = new Point(291, 147);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(281, 60);
+            groupBox4.TabIndex = 12;
+            groupBox4.TabStop = false;
             // 
             // FormMain
             // 
@@ -237,6 +248,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSeaGreen;
             ClientSize = new Size(584, 437);
+            Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -271,9 +283,10 @@
         private Button btnEtutVer;
         private GroupBox groupBox3;
         private DataGridView dataGridView1;
-        private TextBox textBox1;
+        private TextBox txtEtutID;
         private Label label5;
         private TextBox txtOgrenciNo;
         private Label label7;
+        private GroupBox groupBox4;
     }
 }
