@@ -66,7 +66,7 @@
             btnFotografYukle = new Button();
             pictureBox1 = new PictureBox();
             groupBox7 = new GroupBox();
-            button1 = new Button();
+            btnOgretmenKaydet = new Button();
             cmbOgrtBrans = new ComboBox();
             label13 = new Label();
             txtOgrtSoyad = new TextBox();
@@ -288,7 +288,6 @@
             // 
             // txtDersAdi
             // 
-            txtDersAdi.Enabled = false;
             txtDersAdi.Location = new Point(78, 27);
             txtDersAdi.Name = "txtDersAdi";
             txtDersAdi.Size = new Size(111, 25);
@@ -328,9 +327,10 @@
             btnOgrenciKaydet.Location = new Point(87, 179);
             btnOgrenciKaydet.Name = "btnOgrenciKaydet";
             btnOgrenciKaydet.Size = new Size(131, 30);
-            btnOgrenciKaydet.TabIndex = 14;
+            btnOgrenciKaydet.TabIndex = 5;
             btnOgrenciKaydet.Text = "Öğrenci Kaydet";
             btnOgrenciKaydet.UseVisualStyleBackColor = true;
+            btnOgrenciKaydet.Click += btnOgrenciKaydet_Click;
             // 
             // mskOgrTelefon
             // 
@@ -338,15 +338,14 @@
             mskOgrTelefon.Mask = "(999) 000-0000";
             mskOgrTelefon.Name = "mskOgrTelefon";
             mskOgrTelefon.Size = new Size(131, 25);
-            mskOgrTelefon.TabIndex = 24;
+            mskOgrTelefon.TabIndex = 3;
             // 
             // txtOgrMail
             // 
-            txtOgrMail.Enabled = false;
             txtOgrMail.Location = new Point(87, 148);
             txtOgrMail.Name = "txtOgrMail";
             txtOgrMail.Size = new Size(131, 25);
-            txtOgrMail.TabIndex = 23;
+            txtOgrMail.TabIndex = 4;
             // 
             // label12
             // 
@@ -368,12 +367,11 @@
             // 
             // txtOgrSinif
             // 
-            txtOgrSinif.Enabled = false;
             txtOgrSinif.Location = new Point(87, 86);
             txtOgrSinif.MaxLength = 2;
             txtOgrSinif.Name = "txtOgrSinif";
             txtOgrSinif.Size = new Size(131, 25);
-            txtOgrSinif.TabIndex = 19;
+            txtOgrSinif.TabIndex = 2;
             // 
             // label10
             // 
@@ -386,11 +384,10 @@
             // 
             // txtOgrSoyad
             // 
-            txtOgrSoyad.Enabled = false;
             txtOgrSoyad.Location = new Point(87, 55);
             txtOgrSoyad.Name = "txtOgrSoyad";
             txtOgrSoyad.Size = new Size(131, 25);
-            txtOgrSoyad.TabIndex = 17;
+            txtOgrSoyad.TabIndex = 1;
             // 
             // label9
             // 
@@ -403,11 +400,10 @@
             // 
             // txtOgrAd
             // 
-            txtOgrAd.Enabled = false;
             txtOgrAd.Location = new Point(87, 24);
             txtOgrAd.Name = "txtOgrAd";
             txtOgrAd.Size = new Size(131, 25);
-            txtOgrAd.TabIndex = 15;
+            txtOgrAd.TabIndex = 0;
             // 
             // label8
             // 
@@ -437,19 +433,20 @@
             btnFotografYukle.TabIndex = 25;
             btnFotografYukle.Text = "Fotoğraf Yükle";
             btnFotografYukle.UseVisualStyleBackColor = true;
+            btnFotografYukle.Click += btnFotografYukle_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Location = new Point(6, 24);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(220, 143);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(button1);
+            groupBox7.Controls.Add(btnOgretmenKaydet);
             groupBox7.Controls.Add(cmbOgrtBrans);
             groupBox7.Controls.Add(label13);
             groupBox7.Controls.Add(txtOgrtSoyad);
@@ -463,14 +460,14 @@
             groupBox7.TabStop = false;
             groupBox7.Text = "Öğretmen Kayıt";
             // 
-            // button1
+            // btnOgretmenKaydet
             // 
-            button1.Location = new Point(83, 139);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 30);
-            button1.TabIndex = 26;
-            button1.Text = "Öğretmen Kaydet";
-            button1.UseVisualStyleBackColor = true;
+            btnOgretmenKaydet.Location = new Point(83, 139);
+            btnOgretmenKaydet.Name = "btnOgretmenKaydet";
+            btnOgretmenKaydet.Size = new Size(131, 30);
+            btnOgretmenKaydet.TabIndex = 26;
+            btnOgretmenKaydet.Text = "Öğretmen Kaydet";
+            btnOgretmenKaydet.UseVisualStyleBackColor = true;
             // 
             // cmbOgrtBrans
             // 
@@ -492,7 +489,6 @@
             // 
             // txtOgrtSoyad
             // 
-            txtOgrtSoyad.Enabled = false;
             txtOgrtSoyad.Location = new Point(83, 76);
             txtOgrtSoyad.Name = "txtOgrtSoyad";
             txtOgrtSoyad.Size = new Size(131, 25);
@@ -509,7 +505,6 @@
             // 
             // txtOgrtAd
             // 
-            txtOgrtAd.Enabled = false;
             txtOgrtAd.Location = new Point(83, 45);
             txtOgrtAd.Name = "txtOgrtAd";
             txtOgrtAd.Size = new Size(131, 25);
@@ -608,7 +603,7 @@
         private Label label14;
         private TextBox txtOgrtAd;
         private Label label15;
-        private Button button1;
+        private Button btnOgretmenKaydet;
         private ComboBox cmbOgrtBrans;
         private Label label13;
         private OpenFileDialog openFileDialog1;

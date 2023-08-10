@@ -23,6 +23,10 @@ namespace Etut_Project
             cmbDers.ValueMember = "subject_id";
             cmbDers.DisplayMember = "subject_name";
             cmbDers.DataSource = dt;
+
+            cmbOgrtBrans.ValueMember = "subject_id";
+            cmbOgrtBrans.DisplayMember = "subject_name";
+            cmbOgrtBrans.DataSource = dt;
         }
 
         void EtutListesi()
@@ -40,6 +44,16 @@ namespace Etut_Project
             mskSaat.Clear();
             txtEtutID.Clear();
             txtOgrenciNo.Clear();
+        }
+
+        void OgrenciTemizle()
+        {
+            txtOgrAd.Clear();
+            txtOgrSoyad.Clear();
+            txtOgrSinif.Clear();
+            mskOgrTelefon.Clear();
+            txtOgrMail.Clear();
+            pictureBox1.ImageLocation = "";
         }
 
         private void cmbDers_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,7 +79,6 @@ namespace Etut_Project
             cmbOgretmen.ValueMember = "tch_id";
             cmbOgretmen.DisplayMember = "FullName"; // Oluþturduðunuz yeni sütunu DisplayMember olarak kullanýn
             cmbOgretmen.DataSource = dt;
-
         }
 
         private void btnEtutOlustur_Click(object sender, EventArgs e)
@@ -119,5 +132,28 @@ namespace Etut_Project
             }
             EtutListesi();
         }
+
+        private void btnFotografYukle_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            pictureBox1.ImageLocation = openFileDialog1.FileName;
+        }
+
+        private void btnOgrenciKaydet_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string komut = "insert into tbl_students(first_name, last_name, photo, phone_number, mail) values (@p1, @p2, @p3, @p4, @p5)";
+            SqlCommand cmd = new SqlCommand(komut, con);
+            cmd.Parameters.AddWithValue("@p1", txtOgrAd.Text);
+            cmd.Parameters.AddWithValue("@p2", txtOgrSoyad.Text);
+            cmd.Parameters.AddWithValue("@p3", pictureBox1.ImageLocation);
+            cmd.Parameters.AddWithValue("@p4", mskOgrTelefon.Text);
+            cmd.Parameters.AddWithValue("@p5", txtOgrMail.Text);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Öðrenci Baþarýyla Kaydedildi");
+            con.Close();
+            OgrenciTemizle();
+        }
+
     }
 }
