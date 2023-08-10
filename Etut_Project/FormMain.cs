@@ -77,6 +77,7 @@ namespace Etut_Project
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Ýþleminiz Baþarýyla Gerçekleþti", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                EtutListesi();
             }
         }
 

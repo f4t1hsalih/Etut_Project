@@ -39,13 +39,11 @@
             mskTarih = new MaskedTextBox();
             label1 = new Label();
             groupBox2 = new GroupBox();
-            chbIptal = new CheckBox();
-            lblOgrenci = new Label();
-            lblOgretmen = new Label();
-            btnEtutDetay = new Button();
-            label6 = new Label();
+            textBox1 = new TextBox();
+            label5 = new Label();
+            txtOgrenciNo = new TextBox();
+            btnEtutVer = new Button();
             label7 = new Label();
-            label8 = new Label();
             groupBox3 = new GroupBox();
             dataGridView1 = new DataGridView();
             groupBox1.SuspendLayout();
@@ -76,7 +74,7 @@
             btnEtutOlustur.Location = new Point(88, 150);
             btnEtutOlustur.Name = "btnEtutOlustur";
             btnEtutOlustur.Size = new Size(165, 30);
-            btnEtutOlustur.TabIndex = 8;
+            btnEtutOlustur.TabIndex = 4;
             btnEtutOlustur.Text = "Etüt Oluştur";
             btnEtutOlustur.UseVisualStyleBackColor = true;
             btnEtutOlustur.Click += btnEtutOlustur_Click;
@@ -87,7 +85,7 @@
             mskSaat.Mask = "00:00";
             mskSaat.Name = "mskSaat";
             mskSaat.Size = new Size(165, 25);
-            mskSaat.TabIndex = 7;
+            mskSaat.TabIndex = 3;
             mskSaat.ValidatingType = typeof(DateTime);
             // 
             // label4
@@ -115,7 +113,7 @@
             cmbOgretmen.Location = new Point(88, 56);
             cmbOgretmen.Name = "cmbOgretmen";
             cmbOgretmen.Size = new Size(165, 26);
-            cmbOgretmen.TabIndex = 4;
+            cmbOgretmen.TabIndex = 1;
             // 
             // label2
             // 
@@ -133,7 +131,7 @@
             cmbDers.Location = new Point(88, 24);
             cmbDers.Name = "cmbDers";
             cmbDers.Size = new Size(165, 26);
-            cmbDers.TabIndex = 2;
+            cmbDers.TabIndex = 0;
             cmbDers.SelectedIndexChanged += cmbDers_SelectedIndexChanged;
             // 
             // mskTarih
@@ -142,7 +140,7 @@
             mskTarih.Mask = "00/00/0000";
             mskTarih.Name = "mskTarih";
             mskTarih.Size = new Size(165, 25);
-            mskTarih.TabIndex = 1;
+            mskTarih.TabIndex = 2;
             mskTarih.ValidatingType = typeof(DateTime);
             // 
             // label1
@@ -156,89 +154,66 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(chbIptal);
-            groupBox2.Controls.Add(lblOgrenci);
-            groupBox2.Controls.Add(lblOgretmen);
-            groupBox2.Controls.Add(btnEtutDetay);
-            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(txtOgrenciNo);
+            groupBox2.Controls.Add(btnEtutVer);
             groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(label8);
             groupBox2.Location = new Point(291, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(209, 195);
+            groupBox2.Size = new Size(281, 195);
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             // 
-            // chbIptal
+            // textBox1
             // 
-            chbIptal.AutoSize = true;
-            chbIptal.Location = new Point(111, 106);
-            chbIptal.Name = "chbIptal";
-            chbIptal.Size = new Size(55, 22);
-            chbIptal.TabIndex = 11;
-            chbIptal.Text = "İptal";
-            chbIptal.UseVisualStyleBackColor = true;
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(102, 25);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(165, 25);
+            textBox1.TabIndex = 11;
             // 
-            // lblOgrenci
+            // label5
             // 
-            lblOgrenci.AutoSize = true;
-            lblOgrenci.Location = new Point(111, 75);
-            lblOgrenci.Name = "lblOgrenci";
-            lblOgrenci.Size = new Size(35, 18);
-            lblOgrenci.TabIndex = 10;
-            lblOgrenci.Text = "Null";
+            label5.AutoSize = true;
+            label5.Location = new Point(19, 28);
+            label5.Name = "label5";
+            label5.Size = new Size(65, 18);
+            label5.TabIndex = 10;
+            label5.Text = "Etüt ID: ";
             // 
-            // lblOgretmen
+            // txtOgrenciNo
             // 
-            lblOgretmen.AutoSize = true;
-            lblOgretmen.Location = new Point(111, 43);
-            lblOgretmen.Name = "lblOgretmen";
-            lblOgretmen.Size = new Size(35, 18);
-            lblOgretmen.TabIndex = 9;
-            lblOgretmen.Text = "Null";
+            txtOgrenciNo.Location = new Point(102, 56);
+            txtOgrenciNo.Name = "txtOgrenciNo";
+            txtOgrenciNo.Size = new Size(165, 25);
+            txtOgrenciNo.TabIndex = 9;
             // 
-            // btnEtutDetay
+            // btnEtutVer
             // 
-            btnEtutDetay.Location = new Point(22, 138);
-            btnEtutDetay.Name = "btnEtutDetay";
-            btnEtutDetay.Size = new Size(165, 30);
-            btnEtutDetay.TabIndex = 8;
-            btnEtutDetay.Text = "Etüt Detay";
-            btnEtutDetay.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(47, 107);
-            label6.Name = "label6";
-            label6.Size = new Size(58, 18);
-            label6.TabIndex = 5;
-            label6.Text = "Durum: ";
+            btnEtutVer.Location = new Point(102, 150);
+            btnEtutVer.Name = "btnEtutVer";
+            btnEtutVer.Size = new Size(165, 30);
+            btnEtutVer.TabIndex = 8;
+            btnEtutVer.Text = "Etüt Ver";
+            btnEtutVer.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(46, 75);
+            label7.Location = new Point(19, 59);
             label7.Name = "label7";
-            label7.Size = new Size(59, 18);
+            label7.Size = new Size(80, 18);
             label7.TabIndex = 3;
-            label7.Text = "Öğrenci: ";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(34, 43);
-            label8.Name = "label8";
-            label8.Size = new Size(71, 18);
-            label8.TabIndex = 0;
-            label8.Text = "Öğretmen: ";
+            label7.Text = "Öğrenci No: ";
             // 
             // groupBox3
             // 
+            groupBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox3.Controls.Add(dataGridView1);
             groupBox3.Location = new Point(12, 213);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(487, 212);
+            groupBox3.Size = new Size(560, 212);
             groupBox3.TabIndex = 10;
             groupBox3.TabStop = false;
             // 
@@ -252,7 +227,8 @@
             dataGridView1.Location = new Point(3, 21);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(481, 188);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(554, 188);
             dataGridView1.TabIndex = 0;
             // 
             // FormMain
@@ -260,10 +236,11 @@
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSeaGreen;
-            ClientSize = new Size(511, 437);
+            ClientSize = new Size(584, 437);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            DoubleBuffered = true;
             Font = new Font("Monotype Corsiva", 12F, FontStyle.Italic, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormMain";
@@ -291,14 +268,12 @@
         private Button btnEtutOlustur;
         private MaskedTextBox mskSaat;
         private GroupBox groupBox2;
-        private CheckBox chbIptal;
-        private Label lblOgrenci;
-        private Label lblOgretmen;
-        private Button btnEtutDetay;
-        private Label label6;
-        private Label label7;
-        private Label label8;
+        private Button btnEtutVer;
         private GroupBox groupBox3;
         private DataGridView dataGridView1;
+        private TextBox textBox1;
+        private Label label5;
+        private TextBox txtOgrenciNo;
+        private Label label7;
     }
 }
