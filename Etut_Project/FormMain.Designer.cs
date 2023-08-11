@@ -468,6 +468,7 @@
             btnOgretmenKaydet.TabIndex = 26;
             btnOgretmenKaydet.Text = "Öğretmen Kaydet";
             btnOgretmenKaydet.UseVisualStyleBackColor = true;
+            btnOgretmenKaydet.Click += btnOgretmenKaydet_Click;
             // 
             // cmbOgrtBrans
             // 

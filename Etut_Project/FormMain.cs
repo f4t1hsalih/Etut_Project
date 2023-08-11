@@ -155,5 +155,9 @@ namespace Etut_Project
             OgrenciTemizle();
         }
 
+        private void btnOgretmenKaydet_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
