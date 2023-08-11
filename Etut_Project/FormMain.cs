@@ -154,8 +154,8 @@ namespace Etut_Project
                 SqlCommand cmd = new SqlCommand(komut, con);
                 cmd.Parameters.AddWithValue("@p1", txtOgrAd.Text);
                 cmd.Parameters.AddWithValue("@p2", txtOgrSoyad.Text);
-                if (pictureBox1.ImageLocation == "") cmd.Parameters.AddWithValue("@p3", "Null");
-                else cmd.Parameters.AddWithValue("@p3", pictureBox1.ImageLocation);
+                if (pictureBox1.ImageLocation != null) cmd.Parameters.AddWithValue("@p3", pictureBox1.ImageLocation);
+                else cmd.Parameters.AddWithValue("@p3", "");
                 cmd.Parameters.AddWithValue("@p4", mskOgrTelefon.Text);
                 cmd.Parameters.AddWithValue("@p5", txtOgrMail.Text);
                 cmd.ExecuteNonQuery();
