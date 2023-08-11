@@ -14,7 +14,7 @@ namespace Etut_Project
 
         SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=krsDbEtut;Integrated Security=True");
 
-        void DersListesi()
+        private void DersListesi()
         {
             SqlDataAdapter da = new SqlDataAdapter("select * from tbl_subjects", con);
             DataTable dt = new DataTable();
@@ -28,7 +28,7 @@ namespace Etut_Project
             cmbOgrtBrans.DataSource = dt;
         }
 
-        void EtutListesi()
+        private void EtutListesi()
         {
             string komut = "execute EtutOlustur";
             SqlDataAdapter da = new SqlDataAdapter(komut, con);
@@ -37,7 +37,7 @@ namespace Etut_Project
             dataGridView1.DataSource = dt;
         }
 
-        void Temizle()
+        private void EtutTemizle()
         {
             mskTarih.Clear();
             mskSaat.Clear();
@@ -45,7 +45,7 @@ namespace Etut_Project
             txtOgrenciNo.Clear();
         }
 
-        void OgrenciTemizle()
+        private void OgrenciTemizle()
         {
             txtOgrAd.Clear();
             txtOgrSoyad.Clear();
@@ -55,7 +55,7 @@ namespace Etut_Project
             pictureBox1.ImageLocation = null;
         }
 
-        void OgretmenTemizle()
+        private void OgretmenTemizle()
         {
             txtOgrtAd.Clear();
             txtOgrtSoyad.Clear();
@@ -106,7 +106,7 @@ namespace Etut_Project
                 con.Close();
                 MessageBox.Show("Ýþleminiz Baþarýyla Gerçekleþti", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 EtutListesi();
-                Temizle();
+                EtutTemizle();
             }
         }
 
@@ -130,7 +130,7 @@ namespace Etut_Project
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Etüt Öðrenciye Verildi", "Bilgi");
                 con.Close();
-                Temizle();
+                EtutTemizle();
             }
             else
             {
