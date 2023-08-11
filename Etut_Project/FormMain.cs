@@ -52,7 +52,7 @@ namespace Etut_Project
             txtOgrSinif.Clear();
             mskOgrTelefon.Clear();
             txtOgrMail.Clear();
-            pictureBox1.ImageLocation = "";
+            pictureBox1.ImageLocation = null;
         }
 
         void OgretmenTemizle()
