@@ -1,6 +1,5 @@
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 
 namespace Etut_Project
 {
@@ -54,6 +53,13 @@ namespace Etut_Project
             mskOgrTelefon.Clear();
             txtOgrMail.Clear();
             pictureBox1.ImageLocation = "";
+        }
+
+        void OgretmenTemizle()
+        {
+            txtOgrtAd.Clear();
+            txtOgrtSoyad.Clear();
+            cmbOgrtBrans.SelectedValue = 1;
         }
 
         private void cmbDers_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,22 +147,48 @@ namespace Etut_Project
 
         private void btnOgrenciKaydet_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string komut = "insert into tbl_students(first_name, last_name, photo, phone_number, mail) values (@p1, @p2, @p3, @p4, @p5)";
-            SqlCommand cmd = new SqlCommand(komut, con);
-            cmd.Parameters.AddWithValue("@p1", txtOgrAd.Text);
-            cmd.Parameters.AddWithValue("@p2", txtOgrSoyad.Text);
-            cmd.Parameters.AddWithValue("@p3", pictureBox1.ImageLocation);
-            cmd.Parameters.AddWithValue("@p4", mskOgrTelefon.Text);
-            cmd.Parameters.AddWithValue("@p5", txtOgrMail.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Öðrenci Baþarýyla Kaydedildi");
-            con.Close();
-            OgrenciTemizle();
+            if (txtOgrAd.Text != "" && txtOgrSoyad.Text != "" && txtOgrSinif.Text != "" && txtOgrMail.Text != "")
+            {
+                con.Open();
+                string komut = "insert into tbl_students(first_name, last_name, photo, phone_number, mail) values (@p1, @p2, @p3, @p4, @p5)";
+                SqlCommand cmd = new SqlCommand(komut, con);
+                cmd.Parameters.AddWithValue("@p1", txtOgrAd.Text);
+                cmd.Parameters.AddWithValue("@p2", txtOgrSoyad.Text);
+                if (pictureBox1.ImageLocation == "") cmd.Parameters.AddWithValue("@p3", "Null");
+                else cmd.Parameters.AddWithValue("@p3", pictureBox1.ImageLocation);
+                cmd.Parameters.AddWithValue("@p4", mskOgrTelefon.Text);
+                cmd.Parameters.AddWithValue("@p5", txtOgrMail.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Öðrenci Baþarýyla Kaydedildi");
+                con.Close();
+                OgrenciTemizle();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Alanlarý Boþ Býrakmayýnýz");
+            }
+
         }
 
         private void btnOgretmenKaydet_Click(object sender, EventArgs e)
         {
+            if (txtOgrtAd.Text != "" && txtOgrtSoyad.Text != "")
+            {
+                con.Open();
+                string komut = "insert into tbl_teachers(first_name, last_name, subject_id) values (@p1, @p2, @p3)";
+                SqlCommand cmd = new SqlCommand(komut, con);
+                cmd.Parameters.AddWithValue("@p1", txtOgrtAd.Text);
+                cmd.Parameters.AddWithValue("@p2", txtOgrtSoyad.Text);
+                cmd.Parameters.AddWithValue("@p3", cmbOgrtBrans.SelectedValue);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Öðretmen Baþarýyla Kaydedildi");
+                con.Close();
+                OgretmenTemizle();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Alanlarý Boþ Býrakmayýnýz");
+            }
 
         }
     }
