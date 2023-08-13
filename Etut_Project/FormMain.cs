@@ -22,14 +22,8 @@ namespace Etut_Project
             cmd.Parameters.AddWithValue("@p1", lesson);
             int kayitSayisi = (int)cmd.ExecuteScalar();
             con.Close();
-            if (kayitSayisi > 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            //Bu kod ders mevcutsa false, mevcut deðilse true döndürür.
+            return kayitSayisi > 0 ? false : true;
 
         }
 
@@ -213,14 +207,18 @@ namespace Etut_Project
 
         private void btnDersKaydet_Click(object sender, EventArgs e)
         {
-            if (txtDersAdi.Text != "")
+            string dersAdi = txtDersAdi.Text.Trim().ToUpper();
+
+            //Eðer boþsa veya boþluktan oluþuyorsa true döndürür. False yapmak için '!' kullanýlýr.
+            //Yani boþ deðil ise bunlarý yap boþ ise mesaj ver.
+            if (!string.IsNullOrWhiteSpace(dersAdi))
             {
-                if (DersVarmi(txtDersAdi.Text.ToUpper()))
+                if (DersVarmi(dersAdi))
                 {
                     con.Open();
                     string komut = "insert into tbl_subjects(subject_name) values (@p1)";
                     SqlCommand cmd = new SqlCommand(komut, con);
-                    cmd.Parameters.AddWithValue("@p1", txtDersAdi.Text.ToUpper());
+                    cmd.Parameters.AddWithValue("@p1", dersAdi);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Ders Baþarýyla Kaydedildi");
                     con.Close();
