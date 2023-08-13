@@ -20,7 +20,6 @@ namespace Etut_Project
             string komut = "select count(*) from tbl_subjects where subject_name=@p1";
             SqlCommand cmd = new SqlCommand(komut, con);
             cmd.Parameters.AddWithValue("@p1", lesson);
-            cmd.ExecuteNonQuery();
             int kayitSayisi = (int)cmd.ExecuteScalar();
             con.Close();
             if (kayitSayisi > 0)
