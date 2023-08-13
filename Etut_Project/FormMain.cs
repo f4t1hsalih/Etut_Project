@@ -14,6 +14,26 @@ namespace Etut_Project
 
         SqlConnection con = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=krsDbEtut;Integrated Security=True");
 
+        private bool DersVarmi(string lesson)
+        {
+            con.Open();
+            string komut = "select count(*) from tbl_subjects where subject_name=@p1";
+            SqlCommand cmd = new SqlCommand(komut, con);
+            cmd.Parameters.AddWithValue("@p1", lesson);
+            cmd.ExecuteNonQuery();
+            int kayitSayisi = (int)cmd.ExecuteScalar();
+            con.Close();
+            if (kayitSayisi > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
         private void DersListesi()
         {
             SqlDataAdapter da = new SqlDataAdapter("select * from tbl_subjects", con);
@@ -188,6 +208,33 @@ namespace Etut_Project
             else
             {
                 MessageBox.Show("Lütfen Alanlarý Boþ Býrakmayýnýz");
+            }
+
+        }
+
+        private void btnDersKaydet_Click(object sender, EventArgs e)
+        {
+            if (txtDersAdi.Text != "")
+            {
+                if (DersVarmi(txtDersAdi.Text.ToUpper()))
+                {
+                    con.Open();
+                    string komut = "insert into tbl_subjects(subject_name) values (@p1)";
+                    SqlCommand cmd = new SqlCommand(komut, con);
+                    cmd.Parameters.AddWithValue("@p1", txtDersAdi.Text.ToUpper());
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Ders Baþarýyla Kaydedildi");
+                    con.Close();
+                    txtDersAdi.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Bu Ders Veritabanýnda Zaten Var!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Bir Ders Adý Giriniz!");
             }
 
         }

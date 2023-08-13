@@ -285,10 +285,12 @@
             btnDersKaydet.TabIndex = 12;
             btnDersKaydet.Text = "Kaydet";
             btnDersKaydet.UseVisualStyleBackColor = true;
+            btnDersKaydet.Click += btnDersKaydet_Click;
             // 
             // txtDersAdi
             // 
             txtDersAdi.Location = new Point(78, 27);
+            txtDersAdi.MaxLength = 20;
             txtDersAdi.Name = "txtDersAdi";
             txtDersAdi.Size = new Size(111, 25);
             txtDersAdi.TabIndex = 13;
